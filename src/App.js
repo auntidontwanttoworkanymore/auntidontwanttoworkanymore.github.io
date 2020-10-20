@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import { initGA, logPageView } from './analytics'
 
 function App() {
+  useEffect(() => {
+    initGA();
+    logPageView();
+  });
+
   return (
     <div className="App">
       <header className="App-header">
@@ -10,11 +15,6 @@ function App() {
       </header>
     </div>
   );
-}
-
-App.prototype.componentDidMount = function() {
-  initGA()
-  logPageView()
 }
 
 export default App;
