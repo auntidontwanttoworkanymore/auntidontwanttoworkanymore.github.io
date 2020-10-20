@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { initGA, logPageView } from './analytics'
 
 function App() {
   return (
@@ -9,6 +10,11 @@ function App() {
       </header>
     </div>
   );
+}
+
+App.prototype.componentDidMount = function() {
+  initGA()
+  logPageView()
 }
 
 export default App;
